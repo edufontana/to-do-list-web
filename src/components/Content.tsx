@@ -1,26 +1,72 @@
 import { Button } from './Button'
 import style from './Content.module.css'
 import { Input } from './Input'
+import { Tasks } from './Tasks'
+import {task} from '../App'
+import { useState } from 'react'
+import uuid from 'react-uuid';
 
 
 export function Content(){
+
+  interface TasksProps{
+    id: string;
+    done: boolean;
+    text: string;
+  }
+
+  const [tasks, setTasks] = useState<TasksProps[]>([])
+  const [newTask, setNewTask] = useState('')
+
+
+
+  function handleAddNewTask(){
+
+    if(newTask === ''){
+      alert('preencha o campo')
+      return;
+    }
+
+    setTasks([...tasks, {
+      id: uuid(),
+      done: false,
+      text: newTask,
+    }])
+    setNewTask('')
+  }
+
+  function handleDeleteTask(taskId: string){
+    const newArrayTask = tasks.filter((item) =>{
+      return item.id !== taskId
+    })
+
+    setTasks(newArrayTask)
+  }
+
   return(
     <>
     <div className={style.wrapper}>
         <main className={style.main}> 
           <div className={style.wrapperContent}>
             <div className={style.wrapperInput}>
-              <Input/>
+              <textarea 
+              name="tarefa" 
+              className={style.input}
+              value={newTask}
+              onChange={(t) => setNewTask(t.target.value)}
+              />
             </div>
             <div className={style.wrapperButton}>
-              <Button/>
+              <Button text={'Criar'} onClick={() =>{
+                handleAddNewTask()
+              }}/>
             </div>
             
           </div>
           <div className={style.wrapperTask}>
             <div className={style.createTask}>
               <p>{`Tarefas criadas`}</p>
-              <span>{0}</span>
+              <span>{tasks.length}</span>
             </div>
             <div className={style.doneTaks}>
               <p>{`Concluídas`}</p>
@@ -28,7 +74,13 @@ export function Content(){
             </div>
           </div>
           <div className={style.wrapperTasks}>
-           <h1>aa</h1>
+            {tasks.map(item =>(
+              <Tasks 
+              text={item.text} 
+              done={item.done}
+              id={item.id} 
+              onDelete={handleDeleteTask}/>
+            ))}
           </div>
         </main>
       </div> 

@@ -1,0 +1,21 @@
+.tasks{
+  display: flex;
+  background-color: var(--gray-600);
+  padding: 1rem 1rem;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.tasks + .tasks{
+  margin-top: 0.8rem;
+}
+
+.tasks p{
+  font-size: 0.9rem;
+}
+
+.boxText{
+  display: flex;
+  flex:1;
+  margin: 0 1rem;
+}
