@@ -43,6 +43,14 @@ export function Content(){
     setTasks(newArrayTask)
   }
 
+  function handleDoneTask(taskId: string){
+    const taksIndex = tasks.findIndex((task) =>{
+      return task.id === taskId;
+    })
+      tasks[taksIndex].done = !tasks[taksIndex].done
+      setTasks([...tasks])
+  }
+
   return(
     <>
     <div className={style.wrapper}>
@@ -70,18 +78,24 @@ export function Content(){
             </div>
             <div className={style.doneTaks}>
               <p>{`Concluídas`}</p>
-              <span>{0}</span>
+              <span>{`${0} de ${tasks.length}`}</span>
             </div>
           </div>
+         {tasks.length !== 0 ? 
           <div className={style.wrapperTasks}>
-            {tasks.map(item =>(
-              <Tasks 
-              text={item.text} 
-              done={item.done}
-              id={item.id} 
-              onDelete={handleDeleteTask}/>
-            ))}
+          {tasks.map(item =>(
+            <Tasks 
+            text={item.text} 
+            done={item.done}
+            id={item.id} 
+            onDelete={handleDeleteTask}
+            onEditTaskDone={handleDoneTask}/>
+          ))}
+        </div> :
+          <div className={style.noTasks}>
+            <p>Você ainda não tem tarefas</p>
           </div>
+        }
         </main>
       </div> 
       </>
