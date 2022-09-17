@@ -1,14 +1,16 @@
-.main{
-  width: 42rem;
-  display: flex;
-}
-
-
 .wrapper{
-
   display: flex;
   justify-content: center;
 }
+
+
+.main{
+  width: 42rem;
+  display: flex;
+  flex-direction: column;
+}
+
+
 
 .wrapperContent{
   margin-top: -1rem;
@@ -17,7 +19,6 @@
   width: 100%;
  
 }
-
 
 
 .wrapperInput{
@@ -31,6 +32,63 @@
   width: 4.5rem;
   
 }
+
+.wrapperTask{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid var(--gray-800);
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  justify-content: space-between;
+}
+
+.createTask{
+  display: flex;
+  flex-direction: row;
+  color: #4EA8DE;
+  font-weight: bold;
+  line-height: 16px;
+  font-size: 1rem;
+  align-items: center;
+}
+
+.createTask span{
+  margin-left: 0.6rem;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.2rem 0.55rem;
+  background-color: var(--gray-600);
+  border-radius: 10px;
+ 
+}
+
+
+.doneTaks{
+  display: flex;
+  flex-direction: row;
+  color: #8284FA;
+  font-weight: bold;
+  line-height: 16px;
+  font-size: 1rem;
+  align-items: center;
+}
+
+.doneTaks span{
+  margin-left: 0.6rem;
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.2rem 0.55rem;
+  background-color: var(--gray-600);
+  border-radius: 10px;
+}
+
+.wrapperTasks{
+  display: flex;
+  flex: 1;
+  background-color: red;
+  justify-content: center;
+}
+
 
 
 @media (max-width: 750px){
@@ -48,6 +106,7 @@
     margin-top: 0.5rem;
     width: 100%;
     margin-left: 0;
+    height: 1.5rem;
     
   }
 }
