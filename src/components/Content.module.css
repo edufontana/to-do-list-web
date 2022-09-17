@@ -1,0 +1,53 @@
+.main{
+  width: 42rem;
+  display: flex;
+}
+
+
+.wrapper{
+
+  display: flex;
+  justify-content: center;
+}
+
+.wrapperContent{
+  margin-top: -1rem;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+ 
+}
+
+
+
+.wrapperInput{
+  display: flex;
+  flex: 1;
+}
+
+.wrapperButton{
+  display: flex;
+  margin-left: 0.5rem;
+  width: 4.5rem;
+  
+}
+
+
+@media (max-width: 750px){
+  .wrapperContent{
+    margin-top: -1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 30px;
+   
+  }
+
+  .wrapperButton{
+    display: flex;
+    margin-top: 0.5rem;
+    width: 100%;
+    margin-left: 0;
+    
+  }
+}

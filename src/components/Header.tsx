@@ -1,9 +1,11 @@
 import style from './Header.module.css'
 
+import Logo from '../assets/Logo.svg'
+
 export function Header(){
   return(
     <header className={style.header}>
-      <h1>a</h1>
+      <img className={style.logo} src={Logo} alt="" />
     </header>
   )
 }
