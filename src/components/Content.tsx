@@ -35,20 +35,43 @@ export function Content(){
     setNewTask('')
   }
 
+  const tasksDone = tasks.filter((item)=>{
+    if(item.done === false){
+      return false
+    }
+    return item
+  })
+
+
   function handleDeleteTask(taskId: string){
     const newArrayTask = tasks.filter((item) =>{
-      return item.id !== taskId
+      if(item.id === taskId){
+        return false
+      }
+      return item
     })
-
+    console.log(newArrayTask)
     setTasks(newArrayTask)
   }
 
   function handleDoneTask(taskId: string){
-    const taksIndex = tasks.findIndex((task) =>{
+
+    const newArray = tasks.map((item)=>{
+      if(taskId === item.id){
+        return{
+          ...item,
+          done: !item.done,
+        }
+      }
+      return item;
+    })
+    console.log(newArray)
+    setTasks(newArray)
+    /* const taksIndex = tasks.findIndex((task) =>{
       return task.id === taskId;
     })
       tasks[taksIndex].done = !tasks[taksIndex].done
-      setTasks([...tasks])
+      setTasks([...tasks]) */
   }
 
   return(
@@ -78,7 +101,7 @@ export function Content(){
             </div>
             <div className={style.doneTaks}>
               <p>{`Concluídas`}</p>
-              <span>{`${0} de ${tasks.length}`}</span>
+              <span>{`${tasksDone.length} de ${tasks.length}`}</span>
             </div>
           </div>
          {tasks.length !== 0 ? 

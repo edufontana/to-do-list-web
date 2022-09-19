@@ -12,7 +12,7 @@ interface TasksProps{
 export function Tasks({text, done, id, onDelete, onEditTaskDone}: TasksProps){
   return(
     <div className={style.tasks}>
-      {done === true ?
+      {done === false ?
         <button onClick={()=>{onEditTaskDone(id)}} className={style.undone}>
         </button> 
         :
