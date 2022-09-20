@@ -48,7 +48,7 @@
   line-height: 0;
 }
 
-.tasks button{
+.trashIcon{
   background: transparent;
   border: 0;
   color: var(--gray-400);

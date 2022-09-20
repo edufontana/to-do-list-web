@@ -24,7 +24,7 @@ export function Tasks({text, done, id, onDelete, onEditTaskDone}: TasksProps){
           {text}
         </p>
       </div>
-      <button onClick={()=>{onDelete(id)}}>
+      <button className={style.trashIcon} onClick={()=>{onDelete(id)}}>
         <Trash size={18} />
       </button>
     </div>
